@@ -45,7 +45,7 @@
 
 ``` /ip address add address=192.168.254.1/30 disabled=no interface=byedpi_interface ```
 
-### 3. Загружаем контейнер в byedpi
+### 3. Загружаем контейнер byedpi-hev-socks5-tunnel
 Заливаем на свой микрот свежий контейнер от Виктора: [Полезные контейнеры для Mikrotik](https://teletype.in/@wiktorbgu/containers-mikrotik)
 
 ```
