@@ -8,7 +8,7 @@
 ### 1. Включим режим использования контейнеров на микротике
 Посмотреть список режимов можно так: ``` /system/device-mode print ```
 
-Включаем режим контейнера, за одно и генерации трафика, который может пригодиться для этой инструкции: [wiktorbgu/Mikrotik WireGuard anti DPI.md](https://gist.github.com/wiktorbgu/1f2dfe99837d8f2803483be95814d2e5)
+Включаем режим контейнера, за одно и генерации трафика, который может пригодиться, например для этой инструкции: [wiktorbgu/Mikrotik WireGuard anti DPI.md](https://gist.github.com/wiktorbgu/1f2dfe99837d8f2803483be95814d2e5)
 
 Команда включения: ``` /system/device-mode/update container=yes traffic-gen=yes ```
 
