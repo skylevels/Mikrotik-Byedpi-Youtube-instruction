@@ -178,7 +178,7 @@ add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=d
 
 ```
 /ip firewall filter
-add action=accept chain=forward comment="LAN to ByeDPI container" in-interface-list=to_ByeDPI_interface_list out-interface=byedpi_interface protocol=tcp dst-port=80,443
+add action=accept chain=forward comment="LAN to ByeDPI container" in-interface-list=LAN out-interface=byedpi_interface protocol=tcp dst-port=80,443
 add action=accept chain=forward comment="ByeDPI container to Internet" in-interface=byedpi_interface out-interface-list=WAN  protocol=tcp dst-port=80,443
 ```
 
