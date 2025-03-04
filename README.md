@@ -71,11 +71,11 @@
 
 Ниже приведен пример с CloudFlare сервером, но Вы можете выбрать другой, менее популярный.
 
-Тут мы добавляем форвард DoH сервер: ``` /ip/dns/forwarders add doh-servers="https://1.1.1.1/dns-query " name="doh 1.1.1.1" ```
+Добавляем форвард DoH сервер, он будет обрабатывать только те запросы, которые мы отправим, остальные запросы будут обрабатываться стандартными настройками, прописанными в IP - DNS: ``` /ip/dns/forwarders add doh-servers="https://1.1.1.1/dns-query " name="doh 1.1.1.1" ```
 
-Тут загружаем сертификат CloudFlare: ``` /tool fetch https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem ```
+Загружаем сертификат для работы CloudFlare DoH сервером: ``` /tool fetch https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem ```
 
-Тут этот сертификат устанавливаем на микрот: ``` /certificate import file-name=DigiCertGlobalRootG2.crt.pem passphrase="" ```
+Скаченный сертификат устанавливаем на микрот: ``` /certificate import file-name=DigiCertGlobalRootG2.crt.pem passphrase="" ```
 
 ### 6. Создаем список доменов для обхода блокировки
 
