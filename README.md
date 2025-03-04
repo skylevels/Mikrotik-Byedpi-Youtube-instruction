@@ -81,13 +81,14 @@
 
 ### 6. Создаем список доменов для обхода блокировки
 
-<details>
-<summary>Заполняем DNS Static</summary>
-
 Список доменов для обхода блокировки собирал сам, некоторые правила могут дублировать друг друга, больно за него не бейте..
 
 Для доменов из этого списка DNS будет резолвиться из DoH сервера, прописанного в #5 правиле. Все ip адреса в результате резолвинга будут попадать в address-list фаервола "byedpi_list".
 
+
+<details>
+<summary>Заполняем DNS Static</summary>
+  
 ```
 /ip dns static
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=amnezia.org type=FWD
