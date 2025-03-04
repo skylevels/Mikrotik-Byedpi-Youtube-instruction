@@ -78,7 +78,7 @@
 
 Добавляем форвард DoH сервер, он будет обрабатывать только те запросы, которые мы отправим, остальные запросы будут обрабатываться стандартными настройками, прописанными в IP - DNS: 
 
-``` /ip/dns/forwarders add doh-servers="https://1.1.1.1/dns-query " name="doh 1.1.1.1" ```
+``` /ip/dns/forwarders add doh-servers="https://1.1.1.1/dns-query" name="doh 1.1.1.1" ```
 
 Загружаем сертификат для работы CloudFlare DoH сервером: ``` /tool fetch https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem ```
 
