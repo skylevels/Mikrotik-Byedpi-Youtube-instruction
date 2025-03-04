@@ -34,11 +34,11 @@
 ### 3. Создаем интерфейс для будущего контейнера
 Тут всё просто: делаем интерфейс и сразу задаем будущему контейнеру ip адрес: 
 
-``` /interface veth add address=192.168.254.2/24 gateway=192.168.254.1 name=byedpi_interface ```
+``` /interface veth add address=192.168.254.2/30 gateway=192.168.254.1 name=byedpi_interface ```
 
 На другом конце интерфейса задаем ip адрес нашему микротику: 
 
-``` /ip address add address=192.168.254.1/24 disabled=no interface=byedpi_interface ```
+``` /ip address add address=192.168.254.1/30 disabled=no interface=byedpi_interface ```
 
 ### 3. Загружаем контейнер в byedpi
 Заливаем на свой микрот свежий контейнер от Виктора: [Полезные контейнеры для Mikrotik](https://teletype.in/@wiktorbgu/containers-mikrotik)
