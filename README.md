@@ -94,13 +94,10 @@
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=amnezia.org type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googlevideo.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googletagmanager.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=packages.microsoft.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtube.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubei.googleapis.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=ytimg.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtu.be type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=ggpht.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=yt3.ggpht.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=facebook.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=flibusta.is type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=bbc.com type=FWD
@@ -114,9 +111,6 @@ add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=y
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubefanfest.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubegaming.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubego.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=yt3.googleusercontent.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=l.googleusercontent.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=video.google.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubemobilesupport.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=withyoutube.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googleusercontent.com type=FWD
@@ -124,17 +118,12 @@ add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=g
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=gvt1.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=nhacmp3youtube.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=nnmclub.to type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=l.google.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=play.google.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=reddit.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=myip.ru type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=citricmedia.co.uk type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=bard.google.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=google.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=rutracker.cc type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=x.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=1e100.net type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=ytimg.l.google.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=gstatic.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=1e100.app type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=1e100.org type=FWD
@@ -142,10 +131,8 @@ add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=a
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lgappstv.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lgeapi.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lgsmartad.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lgtvonline.lge.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lgtvsdp.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=ngfts.lge.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=video.twimg.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lge.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googleapi.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=rutracker.org type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=t.co type=FWD
@@ -159,9 +146,6 @@ add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=t
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=goo.gl type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=google.ru type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=twimg.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtube-ui.l.google.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=wide-youtube.l.google.com type=FWD
-add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=docs.google.com type=FWD
 ```
 </details>
 
