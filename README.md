@@ -1,7 +1,7 @@
 # Mikrotik-Byedpi-Youtube-instruction
 Инструкция для установки контейнера с byedpi для обхода блокировки Youtube
 
-Данная инструкция работает для микротиков на arm, arm64 процах, с RoS 7.18 и выше
+Данная инструкция работает для микротиков на arm, arm64 процах с RoS 7.18 и выше
 
 Локальный интерфейс (чаще всего это bridge1 или bridge_local) добавьте в interface-list "LAN", так придется меньше адаптировать инструкцию под свой конфиг
 
@@ -175,8 +175,8 @@ add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=d
 
 ```
 /ip firewall filter
-add action=accept chain=forward comment="LAN to ByeDPI container" connection-state=new in-interface-list=to_ByeDPI_interface_list out-interface=byedpi_interface protocol=tcp dst-port=80,443
-add action=accept chain=forward comment="ByeDPI container to Internet" connection-state=new in-interface=byedpi_interface out-interface-list=WAN  protocol=tcp dst-port=80,443
+add action=accept chain=forward comment="LAN to ByeDPI container" in-interface-list=to_ByeDPI_interface_list out-interface=byedpi_interface protocol=tcp dst-port=80,443
+add action=accept chain=forward comment="ByeDPI container to Internet" in-interface=byedpi_interface out-interface-list=WAN  protocol=tcp dst-port=80,443
 ```
 
 Не забываем, что после ввода команд правила появляются в самом низу списка, и нужно ручками из перетащить повыше, для этого зайти через Winbox на IP - Firewall - Filter.
