@@ -56,7 +56,7 @@
 
 Разные ключи для подбора можно взять вот отсюда: https://raw.githubusercontent.com/romanvht/ByeDPIAndroid/refs/heads/master/app/src/main/assets/proxytest_cmds.txt
 
-Также можно полазить на форумах, в обсуждениях репозитория byedpi, а еше спросить в телеграм канале: t.me/it_network_people
+Также можно полазить на форумах, в обсуждениях репозитория byedpi, а еше спросить в телеграм канале: https://t.me/it_network_people
 
 ### 4. Создаем таблицу роутинга и прописываем маршрут до byedpi контейнера
 
@@ -71,27 +71,131 @@
 Ниже приведен пример с CloudFlare сервером, но Вы можете выбрать другой, менее популярный.
 
 Тут мы добавляем форвард DoH сервер: ``` /ip/dns/forwarders add doh-servers="https://1.1.1.1/dns-query " name="doh 1.1.1.1" ```
+
 Тут загружаем сертификат CloudFlare: ``` /tool fetch https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem ```
+
 Тут этот сертификат устанавливаем на микрот: ``` /certificate import file-name=DigiCertGlobalRootG2.crt.pem passphrase="" ```
 
 ### 6. Создаем список доменов для обхода блокировки
 
-/ip/dns set address-list-extra-time=1d
+<details>
+<summary>Заполняем DNS Static</summary>
+
+Список доменов для обхода блокировки собирал сам, некоторые правила могут дублировать друг друга, больно за него не бейте..
+
+Для доменов из этого списка DNS будет резолвиться из DoH сервера, прописанного в #5 правиле. Все ip адреса в результате резолвинга будут попадать в address-list фаервола "byedpi_list".
+
+```
+/ip dns static
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=amnezia.org type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googlevideo.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googletagmanager.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=packages.microsoft.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtube.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubei.googleapis.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=ytimg.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtu.be type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=ggpht.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=yt3.ggpht.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=facebook.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=flibusta.is type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=bbc.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=bbci.co.uk type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=fbcdn.net type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=ntc.party type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=yt.be type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubeeducation.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubekids.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtube-nocookie.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubefanfest.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubegaming.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubego.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=yt3.googleusercontent.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=l.googleusercontent.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=video.google.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtubemobilesupport.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=withyoutube.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googleusercontent.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googleapis.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=gvt1.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=nhacmp3youtube.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=nnmclub.to type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=l.google.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=play.google.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=reddit.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=myip.ru type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=citricmedia.co.uk type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=bard.google.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=google.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=rutracker.cc type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=x.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=1e100.net type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=ytimg.l.google.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=gstatic.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=1e100.app type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=1e100.org type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=aws-prd.net type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lgappstv.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lgeapi.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lgsmartad.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lgtvonline.lge.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=lgtvsdp.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=ngfts.lge.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=video.twimg.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googleapi.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=rutracker.org type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=t.co type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=twtrdns.net type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=twitter.co type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=twitpic.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=twitterinc.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=twitteroauth.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=twitterstat.us type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=twitter.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=goo.gl type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=google.ru type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=twimg.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtube-ui.l.google.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=wide-youtube.l.google.com type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=docs.google.com type=FWD
+```
+</details>
+
+Вот эта команда не позволит быстро очищаться адрес-листам в фаерволе: ``` /ip/dns set address-list-extra-time=1d ```
 
 ### 6. Создаем правила на фаерволе
-Первое правило будет 
+Первое правило будет отправлять трафик, предназначенный для ip адресов из таблицы фаервола "byedpi_list" в таблицу маршрутизации "byedpi_table"
 
+```
+/ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=byedpi_list dst-port=80,443 in-interface-list=LAN new-routing-mark=byedpi_table passthrough=no protocol=tcp
+```
 
+Следующие два правила разрешают трафику из сетей LAN ходить на интерфейс byedpi контейнера, а с интерфейса контейнера ходить в интернет. 
 
-### X. Запретим DNS трафик из вашей локальной сети в обход роутера
+```
+/ip firewall filter
+add action=accept chain=forward comment="LAN to ByeDPI container" connection-state=new in-interface-list=to_ByeDPI_interface_list out-interface=byedpi_interface protocol=tcp dst-port=80,443
+add action=accept chain=forward comment="ByeDPI container to Internet" connection-state=new in-interface=byedpi_interface out-interface-list=WAN  protocol=tcp dst-port=80,443
+```
+
+Не забываем, что после ввода команд правила появляются в самом низу списка, и нужно ручками из перетащить повыше, для этого зайти через Winbox на IP - Firewall - Filter.
+
+Далее правило позволяющее работать ютубу на телевизорах Samsung, LG и т.п.. некоторые пользователи жалуются что ютуб начинает работать чуть медленнее, по этому если нет телека, то правило лучше не использовать:
+```
+/ip firewall mangle add action=change-mss chain=forward new-mss=88 protocol=tcp dst-port=80,443 src-address=192.168.254.2 tcp-flags=syn
+```
+
+### 7. Запретим DNS трафик из вашей локальной сети в обход роутера
+Если вдруг какое-то из устройств локальной сети решит использовать собственный DNS сервер, то DNS запросы пойдут мимо вашего роутера, статическая таблица DNS не будет отправлять ip адреса в firewall address-list и правила обхода окажутся безполезными. По этому в обязательном порядке нужно включить DNS редирект всех запросов из локальной сети:
+
 ```
 /ip firewall nat
- add action=redirect chain=dstnat comment="dns redirect" dst-port=53 in-interface-list=LAN protocol=udp
-add action=redirect chain=dstnat comment="dns redirect" dst-port=53 in-interface-list=LAN protocol=tcp
-
-#for_ipv6
-/ipv6 firewall nat
-add action=redirect chain=dstnat comment="dns redirect" dst-port=53 in-interface-list=LAN protocol=tcp
 add action=redirect chain=dstnat comment="dns redirect" dst-port=53 in-interface-list=LAN protocol=udp
+add action=redirect chain=dstnat comment="dns redirect" dst-port=53 in-interface-list=LAN protocol=tcp
 ```
 
+Ну и для особо подозрительных админов, есть инструкция как блокировать DoH и DoQ запросы из локальной сети, я лично использую везде для более эффективной работы обхода блокировок: 
+[skylevels/Mikrotik-disable-DoH-and-DoQ-instruction](https://github.com/skylevels/Mikrotik-disable-DoH-and-DoQ-instruction)
+
+### 8. Конец
+Тут нужно написать лирическое отступление и подвести итог, но мне пока лень
