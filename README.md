@@ -47,7 +47,7 @@
 /container config set registry-url=https://registry-1.docker.io tmpdir=docker
 /container/add remote-image=wiktorbgu/byedpi-hev-socks5-tunnel:mikro interface=byedpi_interface cmd="-s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An -b+500" root-dir=/docker/byedpi-hev-socks5-tunnel-mikro start-on-boot=yes
 ```
-Контейнер лажет на внутреннюю флеш память микротика, в папку /docker, если хотите (или на вашем микроте нет свободного места), можно записать его на флешку, года подправьте путь в переменной root-dir=/usb1/docker...
+Контейнер ляжет на внутреннюю флеш память микротика, в папку /docker, если хотите (или на вашем микроте нет свободного места), можно записать его на флешку, года подправьте путь в переменной root-dir=/usb1/docker...
 
 Обратите внимания на переменную cmd="-s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An -b+500" именно она задает параметры работы byedpi контейнера. После установки можно ее отредактировать, например если у вашего провайдера данные параметры работают плохо.
 
