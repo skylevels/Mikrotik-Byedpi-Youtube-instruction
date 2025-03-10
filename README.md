@@ -157,7 +157,13 @@ add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=t
 Вот эта команда не позволит быстро очищаться адрес-листам в фаерволе: ``` /ip/dns set address-list-extra-time=1d ```
 
 ### 6. Создаем правила на фаерволе
-Первое правило будет отправлять трафик, предназначенный для ip адресов из таблицы фаервола "byedpi_list" в таблицу маршрутизации "byedpi_table"
+Для начала отключим fastrack для маркированного трафика
+
+```
+/ip firewall filter set [find action=fasttrack-connection] packet-mark=no-mark connection-mark=no-mark
+```
+
+Это правило будет отправлять трафик, предназначенный для ip адресов из таблицы фаервола "byedpi_list" в таблицу маршрутизации "byedpi_table"
 
 ```
 /ip firewall mangle add action=mark-routing chain=prerouting dst-address-list=byedpi_list dst-port=80,443 in-interface-list=LAN new-routing-mark=byedpi_table passthrough=no protocol=tcp
