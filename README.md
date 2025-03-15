@@ -98,6 +98,8 @@
 /ip dns static
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=amnezia.org type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=1e100.net type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=1e100.app type=FWD
+add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=1e100.org type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googlevideo.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=googletagmanager.com type=FWD
 add address-list=byedpi_list forward-to="doh 1.1.1.1" match-subdomain=yes name=youtube.com type=FWD
