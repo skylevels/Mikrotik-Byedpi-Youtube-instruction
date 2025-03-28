@@ -72,10 +72,6 @@
 
 ``` /ip/dns/forwarders add doh-servers="https://dns.quad9.net/dns-query" name="DoH" ```
 
-Загружаем сертификат для работы CloudFlare DoH сервером: ``` /tool fetch https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem ```
-
-Скаченный сертификат устанавливаем на микрот: ``` /certificate import file-name=DigiCertGlobalRootG2.crt.pem passphrase="" ```
-
 ### 6. Создаем список доменов для обхода блокировки
 
 Список доменов для обхода блокировки собирал сам, некоторые правила могут дублировать друг друга, больно за него не бейте..
