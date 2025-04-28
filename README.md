@@ -37,12 +37,13 @@
 
 ``` /ip address add address=192.168.254.1/30 disabled=no interface=byedpi_interface ```
 
-### 3. Загружаем контейнер byedpi-hev-socks5-tunnel
+### 3. Загружаем контейнер byedpi-tproxy-mikrotik
 Заливаем на свой микрот свежий контейнер от Виктора: [Полезные контейнеры для Mikrotik](https://teletype.in/@wiktorbgu/containers-mikrotik)
 
+* внимание! РКН блокирует registry-1.docker.io, по этому нужно подключать Микротик к интернету с уже работающим VPN, иначе скачивание контейнера может не состояться. 
 ```
 /container config set registry-url=https://registry-1.docker.io tmpdir=docker
-/container/add remote-image=wiktorbgu/byedpi-hev-socks5-tunnel:mikro interface=byedpi_interface cmd="-s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An -b+500" root-dir=/docker/byedpi-hev-socks5-tunnel-mikro start-on-boot=yes
+/container/add remote-image=wiktorbgu/byedpi-tproxy-mikrotik interface=byedpi_interface cmd="-s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An -b+500" root-dir=/docker/byedpi-hev-socks5-tunnel-mikro start-on-boot=yes
 ```
 Контейнер ляжет на внутреннюю флеш память микротика, в папку /docker, если хотите (или на вашем микроте нет свободного места), можно записать его на флешку, для этого подправьте путь в переменной root-dir=/usb1/docker...
 
