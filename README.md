@@ -42,7 +42,7 @@
 
 * внимание! РКН блокирует registry-1.docker.io, по этому нужно подключать Микротик к интернету с уже работающим VPN, иначе скачивание контейнера может не состояться. 
 ```
-/container/add remote-image=wiktorbgu/byedpi-hev-socks5-tunnel:redirect interface=byedpi_interface cmd="-s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An -b+500" root-dir=/docker/byedpi-hev-socks5-tunnel start-on-boot=yes
+/container/add remote-image=wiktorbgu/byedpi-hev-socks5-tunnel:latest interface=byedpi_interface cmd="-s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An -b+500" root-dir=/docker/byedpi-hev-socks5-tunnel start-on-boot=yes
 ```
 Контейнер ляжет на внутреннюю флеш память микротика, в папку /docker, если хотите (или на вашем микроте нет свободного места), можно записать его на флешку, для этого подправьте путь в переменной root-dir=/usb1/docker...
 
@@ -72,7 +72,7 @@
 
 Добавляем форвард DoH сервер, он будет обрабатывать только те запросы, которые мы отправим, остальные запросы будут обрабатываться стандартными настройками, прописанными в IP - DNS: 
 
-``` /ip/dns/forwarders add doh-servers="https://dns.quad9.net/dns-query" name="DoH" ```
+``` /ip/dns/forwarders add doh-servers="https://dns.quad9.net/dns-query" name="DoH" verify-doh-cert=yes ```
 
 ### 6. Создаем список доменов для обхода блокировки
 
