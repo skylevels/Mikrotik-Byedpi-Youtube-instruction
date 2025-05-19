@@ -28,6 +28,10 @@
 
 ![Скрин с контейнером ](screen2.png)
 
+Подключаем к модулю зеркало от Гугла: 
+
+``` set registry-url=https://mirror.gcr.io tmpdir=docker ``` 
+
 ### 3. Создаем интерфейс для будущего контейнера
 Тут всё просто: делаем интерфейс и сразу задаем будущему контейнеру ip адрес: 
 
@@ -40,7 +44,6 @@
 ### 3. Загружаем контейнер byedpi-hev-socks5-tunnel
 Заливаем на свой микрот свежий контейнер от Виктора: [Полезные контейнеры для Mikrotik](https://teletype.in/@wiktorbgu/containers-mikrotik)
 
-* внимание! РКН блокирует registry-1.docker.io, по этому нужно подключать Микротик к интернету с уже работающим VPN, иначе скачивание контейнера может не состояться. 
 ```
 /container/add remote-image=wiktorbgu/byedpi-hev-socks5-tunnel:latest interface=byedpi_interface cmd="-s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An -b+500" root-dir=/docker/byedpi-hev-socks5-tunnel start-on-boot=yes
 ```
